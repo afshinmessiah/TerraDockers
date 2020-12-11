@@ -173,7 +173,9 @@ RUN chown -R $USER:users $JUPYTER_HOME \
  && $JUPYTER_HOME/scripts/extension/jupyter_install_lab_extension.sh $JUPYTER_HOME/custom/extension_entry_jupyterlab.js \
  && mkdir $JUPYTER_HOME/nbconfig \
  && $JUPYTER_HOME/scripts/kernel/kernelspec.sh $JUPYTER_HOME/scripts/kernel /usr/local/share/jupyter/kernels
+# Added by Afshin
 RUN apt-get update && apt-get install -yq --no-install-recommends plastimatch
+RUN pip3 install google-cloud-bigquery
 USER $USER
 WORKDIR $HOME
 

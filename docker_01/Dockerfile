@@ -1,6 +1,7 @@
 # adapted from https://hub.docker.com/r/jupyter/base-notebook/ AKA https://github.com/jupyter/docker-stacks/tree/master/base-notebook
 
-FROM marketplace.gcr.io/google/ubuntu1804:latest
+# FROM marketplace.gcr.io/google/ubuntu1804:latest
+FROM gcr.io/gcp-runtimes/ubuntu_18_0_4:latest
 USER root
 
 #######################

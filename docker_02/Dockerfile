@@ -138,17 +138,6 @@ RUN pip3 -V \
  && pip3 install firecloud==0.16.25 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
- # Added by Afshin ------------------------------
- RUN pip3 install google-cloud-bigquery \
-&& pip3 install SimpleITK \
-&& pip3 install pydicom \
-&& pip3 install matplotlib \
-&& pip3 install seaborn \
-&& pip3 install pandas \
-&& pip3 install numpy \
-&& pip3 install sklearn
-
- #End of added by Afshin ------------------------------
 
 # tmp hack min-5
 # I'm not installing jupyterlab and I can't update init-actions.sh to not access it
@@ -185,9 +174,16 @@ RUN chown -R $USER:users $JUPYTER_HOME \
  && $JUPYTER_HOME/scripts/extension/jupyter_install_lab_extension.sh $JUPYTER_HOME/custom/extension_entry_jupyterlab.js \
  && mkdir $JUPYTER_HOME/nbconfig \
  && $JUPYTER_HOME/scripts/kernel/kernelspec.sh $JUPYTER_HOME/scripts/kernel /usr/local/share/jupyter/kernels
-# Added by Afshin ------------------------------
-RUN apt-get update && apt-get install -yq --no-install-recommends plastimatch
-# End of added by Afshin ---------------------
+# Added by Afshin
+RUN apt-get update && apt-get install -yq --no-install-recommends plastimatch \
+&& pip3 install google-cloud-bigquery \
+&& pip3 install SimpleITK \
+&& pip3 install pydicom \
+&& pip3 install matplotlib \
+&& pip3 install seaborn \
+&& pip3 install pandas \
+&& pip3 install numpy \
+&& pip3 install sklearn
 USER $USER
 WORKDIR $HOME
 

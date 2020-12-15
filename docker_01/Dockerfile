@@ -177,6 +177,13 @@ RUN chown -R $USER:users $JUPYTER_HOME \
 # Added by Afshin
 RUN apt-get update && apt-get install -yq --no-install-recommends plastimatch
 RUN pip3 install google-cloud-bigquery
+RUN pip3 install SimpleITK
+RUN pip3 install pydicom
+RUN pip3 install matplotlib
+RUN pip3 install seaborn
+RUN pip3 install pandas
+RUN pip3 install numpy
+RUN pip3 install sklearn
 USER $USER
 WORKDIR $HOME
 
